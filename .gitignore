@@ -1,6 +1,0 @@
-__pycache__/
-*.pyc
-.venv/
-models/*.pkl
-data/processed/*.csv
-.ipynb_checkpoints/

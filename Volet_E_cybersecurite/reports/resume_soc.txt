@@ -1,0 +1,39 @@
+RÉSUMÉ SOC - NÉOVOLT GRID+
+========================================
+
+Nombre total d'alertes : 12690
+
+Alertes par type :
+- ACTIVITE_SCADA : 6868
+- ACTIVITE_PRESTATAIRE : 3412
+- EXPORT_DONNEES : 1436
+- MODIFICATION_CONFIG : 973
+- BRUTE_FORCE : 1
+
+Alertes par criticité :
+- Critique : 7841
+- Haute : 4849
+
+Top utilisateurs :
+- prestataire_ext : 4094
+- p.garcia : 685
+- c.dubois : 681
+- t.robin : 673
+- n.faure : 672
+- admin.sys : 667
+- l.henry : 666
+- f.petit : 665
+- e.blanc : 665
+- j.morel : 663
+
+Top IP sources :
+- 10.20.9.77 : 59
+- 10.20.4.51 : 42
+- 10.20.2.11 : 14
+- 10.20.3.193 : 12
+- 10.20.0.6 : 12
+- 10.20.1.207 : 12
+- 10.20.8.66 : 12
+- 10.20.10.182 : 11
+- 10.20.1.150 : 11
+- 10.20.11.52 : 11
