@@ -1,0 +1,2 @@
+horodatage,utilisateur,source_ip,systeme,type_evenement,resultat
+2026-06-03T20:59:07.534153,api_user,127.0.0.1,api_data_engineering,appel_health,succes

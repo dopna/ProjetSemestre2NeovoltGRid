@@ -1,0 +1,42 @@
+# Neovolt Grid+ - prototype Data Engineering
+# Lancer :  docker compose up --build
+# (placer le dossier `donnees/` fourni a la racine du depot)
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: neovolt
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-neovolt}
+      POSTGRES_DB: neovolt
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U neovolt"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  ingest:                       # job batch (ingestion + nettoyage + qualite)
+    build: .
+    command: python -m neovolt.ingest
+    environment:
+      DATABASE_URL: postgresql+psycopg2://neovolt:${POSTGRES_PASSWORD:-neovolt}@db:5432/neovolt
+      NEOVOLT_DATA_DIR: /data
+    volumes:
+      - ./donnees:/data:ro      # donnees montees en lecture seule
+    depends_on:
+      db:
+        condition: service_healthy
+
+  api:                          # exposition des donnees aux autres volets
+    build: .
+    environment:
+      DATABASE_URL: postgresql+psycopg2://neovolt:${POSTGRES_PASSWORD:-neovolt}@db:5432/neovolt
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  pgdata:
