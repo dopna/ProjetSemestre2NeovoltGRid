@@ -1,0 +1,5 @@
+﻿Problème,Nombre,Taux (%),Traitement appliqué
+Valeurs manquantes,6856,1.3%,Imputation médiane glissante 7j par PDL
+Valeurs négatives,1034,0.2%,Reclassés NaN (consommation physiquement impossible)
+Doublons (pdl+date),1286,0.3%,Suppression (1ère occurrence conservée)
+Valeurs aberrantes (>p99.9),507,0.1%,Reclassés NaN puis imputés
