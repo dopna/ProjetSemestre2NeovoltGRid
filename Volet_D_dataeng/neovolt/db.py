@@ -1,10 +1,3 @@
-"""
-Modele de donnees et connexion - Neovolt Grid+ (Volet Data Engineering).
-
-Source de verite unique du schema : les memes tables servent au pipeline
-d'ingestion ET a l'API. Compatible PostgreSQL (production / docker-compose)
-et SQLite (test local rapide), via la variable DATABASE_URL.
-"""
 import os
 from sqlalchemy import (create_engine, Column, String, Float, Integer, Date,
                         DateTime, ForeignKey, Index)
